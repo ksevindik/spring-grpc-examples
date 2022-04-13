@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_package = "com.example";
+
+package com.example;
+
+message SayHelloRequest {
+    string name = 1;
+}
+
+message SayHelloResponse {
+    string reply = 1;
+}
+
+service HelloService {
+    rpc sayHello(SayHelloRequest) returns (SayHelloResponse);
+}

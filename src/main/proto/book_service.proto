@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option java_package = "com.example";
+
+package com.example;
+
+import "page_model.proto";
+
+message ListBookRequest {
+  PageRequest pageRequest = 1;
+}
+
+message ListBookResponse {
+  Page page = 1;
+  repeated Book book = 2;
+}
+
+message Book {
+  string title = 1;
+  string author = 2;
+}
+
+service BookService {
+  rpc getBooks(ListBookRequest) returns (ListBookResponse);
+}
